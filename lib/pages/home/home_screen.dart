@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_template/utils/logger.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -20,6 +21,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  final Log _logger = new Log("home_screen");
 
   void _incrementCounter() {
     setState(() {
@@ -34,6 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    _logger.fine(message: 'GGGGGGGGGGGGGGGGGGGGGGGGGGG');
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
