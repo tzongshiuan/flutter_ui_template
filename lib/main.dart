@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    _logger.fine(message: 'is debug mode: ${AppConfig.IS_DEBUG}');
+    _logger.fine(message: 'is debug mode: ${AppConfig.IS_DEBUG}', stackTrace: StackTrace.current);
 
     return MaterialApp(
       title: 'Flutter Demo',

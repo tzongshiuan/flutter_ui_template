@@ -23,50 +23,80 @@ class Log {
   final String _tag;
   Logger _logger;
 
-  void finest({@required String message, bool isNeed = false}) {
+  void printStack(StackTrace stackTrace, int stackNum, Function log) {
+    if (stackTrace != null) {
+      var array = stackTrace.toString().split('\n');
+      String stackLog = "";
+      int lineNum = 0;
+
+      for (var str in array) {
+        if (lineNum != 0) {
+          stackLog += '\n';
+        }
+
+        stackLog += str;
+        lineNum++;
+
+        if (lineNum == stackNum) {
+          break;
+        }
+      }
+
+      log(stackLog);
+    }
+  }
+
+  void finest({@required String message, bool isNeed = false, StackTrace stackTrace, int stackNum = 1}) {
     if (AppConfig.IS_DEBUG || isNeed) {
+      printStack(stackTrace, stackNum, _logger.finest);
       _logger.finest("$message");
     }
   }
 
-  void finer({@required String message, bool isNeed = false}) {
+  void finer({@required String message, bool isNeed = false, StackTrace stackTrace, int stackNum = 1}) {
     if (AppConfig.IS_DEBUG || isNeed) {
+      printStack(stackTrace, stackNum, _logger.finer);
       _logger.finer("$message");
     }
   }
 
-  void fine({@required String message, bool isNeed = false}) {
+  void fine({@required String message, bool isNeed = false, StackTrace stackTrace, int stackNum = 1}) {
     if (AppConfig.IS_DEBUG || isNeed) {
+      printStack(stackTrace, stackNum, _logger.fine);
       _logger.fine("$message");
     }
   }
 
-  void config({@required String message, bool isNeed = false}) {
+  void config({@required String message, bool isNeed = false, StackTrace stackTrace, int stackNum = 1}) {
     if (AppConfig.IS_DEBUG || isNeed) {
       _logger.config("$message");
     }
   }
 
-  void info({@required String message, bool isNeed = false}) {
+  void info({@required String message, bool isNeed = false, StackTrace stackTrace, int stackNum = 1}) {
     if (AppConfig.IS_DEBUG || isNeed) {
+      printStack(stackTrace, stackNum, _logger.info);
       _logger.info("$message");
     }
   }
 
-  void warning({@required String message, bool isNeed = false}) {
+  void warning({@required String message, bool isNeed = false, StackTrace stackTrace, int stackNum = 1}) {
     if (AppConfig.IS_DEBUG || isNeed) {
+      printStack(stackTrace, stackNum, _logger.warning);
       _logger.warning("$message");
     }
   }
 
-  void severe({@required String message, bool isNeed = false}) {
+  void severe({@required String message, bool isNeed = false, StackTrace stackTrace, int stackNum = 1}) {
     if (AppConfig.IS_DEBUG || isNeed) {
+      printStack(stackTrace, stackNum, _logger.severe);
       _logger.severe("$message");
     }
   }
 
-  void shout({@required String message, bool isNeed = false}) {
+  void shout({@required String message, bool isNeed = false, StackTrace stackTrace, int stackNum = 1}) {
     if (AppConfig.IS_DEBUG || isNeed) {
+      printStack(stackTrace, stackNum, _logger.shout);
       _logger.shout("$message");
     }
   }
