@@ -5,11 +5,19 @@ import 'package:flutter_ui_template/res/config/app_config.dart';
 import 'package:flutter_ui_template/utils/my_navigator.dart';
 import 'package:flutter_ui_template/utils/logger.dart';
 import 'package:logging/logging.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_ui_template/generated/i18n.dart';
 
 final Log _logger = Log('main');
 
 var routes = <String, WidgetBuilder>{
-  "/home": (BuildContext context) => MyHomePage(title: 'Flutter Demo Home Page'),
+  "/home": (BuildContext context) {
+    if (AppConfig.IS_ENABLE_SPLASH)
+      return MyHomePage(title: S.of(context).title);
+    else {
+      return MyHomePage(title: const S().title);
+    }
+  },
 };
 
 void main() {
@@ -26,8 +34,7 @@ class MyApp extends StatelessWidget {
     Logger.root.level = AppConfig.DEBUG_LEVEL;
     Logger.root.onRecord.listen((LogRecord rec) {
       if (AppConfig.IS_DEBUG) {
-        print(
-            '[${rec.level.name}][${rec.time}][${rec.loggerName}]: ${rec.message}');
+        print('[${rec.level.name}][${rec.time}][${rec.loggerName}]: ${rec.message}');
       }
     });
   }
@@ -38,7 +45,7 @@ class MyApp extends StatelessWidget {
     _logger.fine(message: 'is debug mode: ${AppConfig.IS_DEBUG}', stackTrace: StackTrace.current);
 
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter UI Demo',
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
       showSemanticsDebugger: false,
@@ -49,6 +56,14 @@ class MyApp extends StatelessWidget {
         ? SplashScreen()
         : routes["/home"](context),
       routes: routes,
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
+      // Have problem here
+      //localeResolutionCallback: S.delegate.resolution(fallback: Locale("en", "")),
     );
   }
 }
