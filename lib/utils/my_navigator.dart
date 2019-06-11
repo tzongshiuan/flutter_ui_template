@@ -39,6 +39,6 @@ var routes = <String, WidgetBuilder>{
   },
 
   MyNavigator._DRAWER_NAVIGATION_SCREEN: (BuildContext context) {
-    return MyHomePage(title: S.of(context).drawer_nav_title);
+    return DrawerNavigationScreen(title: S.of(context).drawer_nav_title);
   }
 };
