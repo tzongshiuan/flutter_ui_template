@@ -1,24 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_template/pages/home/home_screen.dart';
 import 'package:flutter_ui_template/pages/splash/splash_screen.dart';
 import 'package:flutter_ui_template/res/config/app_config.dart';
-import 'package:flutter_ui_template/utils/my_navigator.dart';
 import 'package:flutter_ui_template/utils/logger.dart';
 import 'package:logging/logging.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_ui_template/generated/i18n.dart';
+import 'package:flutter_ui_template/utils/my_navigator.dart';
 
 final Log _logger = Log('main');
-
-var routes = <String, WidgetBuilder>{
-  "/home": (BuildContext context) {
-    if (AppConfig.IS_ENABLE_SPLASH)
-      return MyHomePage(title: S.of(context).title);
-    else {
-      return MyHomePage(title: const S().title);
-    }
-  },
-};
 
 void main() {
   runApp(MyApp());

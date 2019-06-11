@@ -19,6 +19,12 @@ class S implements WidgetsLocalizations {
   @override
   TextDirection get textDirection => TextDirection.ltr;
 
+  String get bottom_airplay => "Airplay";
+  String get bottom_alarm => "Alarm";
+  String get bottom_email => "Email";
+  String get bottom_nav_title => "Bottom Navigation";
+  String get bottom_person => "Person";
+  String get drawer_nav_title => "Drawer Navigation";
   String get splash_hint => "Splash Hint";
   String get title => "Flutter UI Title";
 }

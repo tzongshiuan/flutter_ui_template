@@ -1,4 +1,12 @@
 {
   "title": "Flutter UI Title",
-  "splash_hint": "Splash Hint"
+  "splash_hint": "Splash Hint",
+
+  "bottom_nav_title": "Bottom Navigation",
+  "bottom_person": "Person",
+  "bottom_email": "Email",
+  "bottom_alarm": "Alarm",
+  "bottom_airplay": "Airplay",
+
+  "drawer_nav_title": "Drawer Navigation"
 }

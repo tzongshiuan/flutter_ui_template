@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_template/utils/logger.dart';
+import 'package:flutter_ui_template/utils/my_navigator.dart';
 import 'package:flutter_ui_template/generated/i18n.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -37,54 +29,60 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    _logger.fine(message: 'GGGGGGGGGGGGGGGGGGGGGGGGGGG');
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    _logger.fine(message: 'build()');
+
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        leading: new Container(width: 0.0),
+        title: new Text(widget.title),
+        actions: <Widget>[
+          new Container()
+        ],
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
+        child: _myListView(context),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  Widget _myListView(BuildContext context) {
+    final titles = [
+      S.of(context).bottom_nav_title,
+      S.of(context).drawer_nav_title
+    ];
+
+    final icons = [Icons.directions_boat,
+      Icons.directions_bus, Icons.directions_car, Icons.directions_railway,
+      Icons.directions_run, Icons.directions_subway, Icons.directions_transit,
+      Icons.directions_walk];
+
+    return ListView.builder(
+      itemCount: titles.length,
+      itemBuilder: (context, index) {
+        return Card(
+          child: ListTile(
+            leading: CircleAvatar(
+              child: new Text(titles[index][0] + titles[index][1] + titles[index][2]),
+              backgroundColor: Colors.orangeAccent,
+              foregroundColor: Colors.white,
+            ), //Icon(icons[index]),
+            title: Text(titles[index]),
+            onTap: () {
+              _logger.fine(message: "onTap index: $index");
+              switch (index) {
+                case 0:
+                  // goto first template
+                  MyNavigator.goToBottomNavigation(context);
+                  break;
+                case 1:
+                  MyNavigator.goToDrawerNavigation(context);
+                  break;
+                default:
+              }
+            },
+          ),
+        );
+      },
     );
   }
 }
