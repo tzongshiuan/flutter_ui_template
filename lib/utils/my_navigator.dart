@@ -6,12 +6,16 @@ import 'package:flutter_ui_template/pages/home/home_screen.dart';
 import 'package:flutter_ui_template/pages/bottom_navigation/bottom_navigation_screen.dart';
 import 'package:flutter_ui_template/pages/drawer_navigation/drawer_navigation_screen.dart';
 import 'package:flutter_ui_template/pages/tab_bar/tab_bar_screen.dart';
+import 'package:flutter_ui_template/pages/timeline/timeline_screen.dart';
 
 class MyNavigator {
   static const String _HOME_SCREEN = "/home";
   static const String _BOTTOM_NAVIGATION_SCREEN = "/bottom_navigation";
   static const String _DRAWER_NAVIGATION_SCREEN = "/drawer_navigation";
   static const String _TAP_BAR_SCREEN = "/tap_bar";
+
+  // UI Challenge
+  static const String _TIMELINE_SCREEN = "/timeline";
 
   static void goToHome(BuildContext context) {
     Navigator.pushNamed(context, _HOME_SCREEN);
@@ -27,6 +31,10 @@ class MyNavigator {
 
   static void goToTabBar(BuildContext context) {
     Navigator.pushNamed(context, _TAP_BAR_SCREEN);
+  }
+
+  static void goToTimeline(BuildContext context) {
+    Navigator.pushNamed(context, _TIMELINE_SCREEN);
   }
 }
 
@@ -49,5 +57,9 @@ var routes = <String, WidgetBuilder>{
 
   MyNavigator._TAP_BAR_SCREEN: (BuildContext context) {
     return TabBarScreen();
+  },
+
+  MyNavigator._TIMELINE_SCREEN: (BuildContext context) {
+    return TimelineScreen();
   }
 };

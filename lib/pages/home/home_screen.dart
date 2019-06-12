@@ -49,7 +49,8 @@ class _MyHomePageState extends State<MyHomePage> {
     final titles = [
       S.of(context).bottom_nav_title,
       S.of(context).drawer_nav_title,
-      S.of(context).tab_bar_title
+      S.of(context).tab_bar_title,
+      S.of(context).timeline_title
     ];
 
     final icons = [Icons.directions_boat,
@@ -80,6 +81,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   break;
                 case 2:
                   MyNavigator.goToTabBar(context);
+                  break;
+                case 3:
+                  MyNavigator.goToTimeline(context);
                   break;
                 default:
               }
