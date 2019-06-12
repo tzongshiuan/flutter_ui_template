@@ -8,5 +8,7 @@
   "bottom_alarm": "Alarm",
   "bottom_airplay": "Airplay",
 
-  "drawer_nav_title": "Drawer Navigation"
+  "drawer_nav_title": "Drawer Navigation",
+
+  "tab_bar_title": "Tab Bar"
 }

@@ -48,7 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _myListView(BuildContext context) {
     final titles = [
       S.of(context).bottom_nav_title,
-      S.of(context).drawer_nav_title
+      S.of(context).drawer_nav_title,
+      S.of(context).tab_bar_title
     ];
 
     final icons = [Icons.directions_boat,
@@ -76,6 +77,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   break;
                 case 1:
                   MyNavigator.goToDrawerNavigation(context);
+                  break;
+                case 2:
+                  MyNavigator.goToTabBar(context);
                   break;
                 default:
               }

@@ -26,6 +26,7 @@ class S implements WidgetsLocalizations {
   String get bottom_person => "Person";
   String get drawer_nav_title => "Drawer Navigation";
   String get splash_hint => "Splash Hint";
+  String get tab_bar_title => "Tab Bar";
   String get title => "Flutter UI Title";
 }
 

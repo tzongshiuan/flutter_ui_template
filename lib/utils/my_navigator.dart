@@ -5,6 +5,7 @@ import 'package:flutter_ui_template/generated/i18n.dart';
 import 'package:flutter_ui_template/pages/home/home_screen.dart';
 import 'package:flutter_ui_template/pages/bottom_navigation/bottom_navigation_screen.dart';
 import 'package:flutter_ui_template/pages/drawer_navigation/drawer_navigation_screen.dart';
+import 'package:flutter_ui_template/pages/tab_bar/tab_bar_screen.dart';
 
 class MyNavigator {
   static const String _HOME_SCREEN = "/home";
@@ -23,6 +24,10 @@ class MyNavigator {
   static void goToDrawerNavigation(BuildContext context) {
     Navigator.pushNamed(context, _DRAWER_NAVIGATION_SCREEN);
   }
+
+  static void goToTabBar(BuildContext context) {
+    Navigator.pushNamed(context, _TAP_BAR_SCREEN);
+  }
 }
 
 var routes = <String, WidgetBuilder>{
@@ -40,5 +45,9 @@ var routes = <String, WidgetBuilder>{
 
   MyNavigator._DRAWER_NAVIGATION_SCREEN: (BuildContext context) {
     return DrawerNavigationScreen(title: S.of(context).drawer_nav_title);
+  },
+
+  MyNavigator._TAP_BAR_SCREEN: (BuildContext context) {
+    return TabBarScreen();
   }
 };
