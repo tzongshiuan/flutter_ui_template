@@ -12,5 +12,10 @@
 
   "tab_bar_title": "Tab Bar",
 
-  "timeline_title": "Timeline"
+  "timeline_title": "Timeline",
+
+
+  "profile_name": "Tsung Hsuan, Lai",
+  "profile_email": "tzongshiuan@gmail.com",
+  "profile_job_title": "Senior Android Engineer"
 }
