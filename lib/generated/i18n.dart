@@ -25,6 +25,7 @@ class S implements WidgetsLocalizations {
   String get bottom_nav_title => "Bottom Navigation";
   String get bottom_person => "Person";
   String get drawer_nav_title => "Drawer Navigation";
+  String get my_schedule_title => "My Schedule";
   String get profile_email => "tzongshiuan@gmail.com";
   String get profile_job_title => "Senior Android Engineer";
   String get profile_name => "Tsung Hsuan, Lai";

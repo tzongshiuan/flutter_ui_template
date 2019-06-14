@@ -7,6 +7,7 @@ import 'package:flutter_ui_template/pages/bottom_navigation/bottom_navigation_sc
 import 'package:flutter_ui_template/pages/drawer_navigation/drawer_navigation_screen.dart';
 import 'package:flutter_ui_template/pages/tab_bar/tab_bar_screen.dart';
 import 'package:flutter_ui_template/pages/timeline/timeline_screen.dart';
+import 'package:flutter_ui_template/pages/my_schedule/my_schedule_screen.dart';
 
 class MyNavigator {
   static const String _HOME_SCREEN = "/home";
@@ -16,6 +17,9 @@ class MyNavigator {
 
   // UI Challenge
   static const String _TIMELINE_SCREEN = "/timeline";
+
+  // MySchedule
+  static const String _MY_SCHEDULE = "/my_schedule";
 
   static void goToHome(BuildContext context) {
     Navigator.pushNamed(context, _HOME_SCREEN);
@@ -35,6 +39,10 @@ class MyNavigator {
 
   static void goToTimeline(BuildContext context) {
     Navigator.pushNamed(context, _TIMELINE_SCREEN);
+  }
+
+  static void goToMySchedule(BuildContext context) {
+    Navigator.pushNamed(context, _MY_SCHEDULE);
   }
 }
 
@@ -61,5 +69,9 @@ var routes = <String, WidgetBuilder>{
 
   MyNavigator._TIMELINE_SCREEN: (BuildContext context) {
     return TimelineScreen();
+  },
+
+  MyNavigator._MY_SCHEDULE: (BuildContext context) {
+    return MyScheduleScreen();
   }
 };
