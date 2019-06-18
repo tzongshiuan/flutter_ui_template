@@ -3,13 +3,15 @@ Contains a variety of commonly used screen layouts for flutter developers to ref
 
 ## Contents
 
-- [Author Information](#AuthorInformation)
+- [UI Template](#UI%20Template)
+- [Other](#Other)
+- [Author Information](#Author%20Information)
 
-## F1
+## UI Template
 
-## F2
+## Other
 
-## AuthorInformation
+## Author Information
 ![HsuanPhoto](https://i.imgur.com/T50aHcd.jpg)
 
 + Name: Tsung Hsuan, Lai
