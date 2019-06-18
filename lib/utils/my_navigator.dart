@@ -8,6 +8,7 @@ import 'package:flutter_ui_template/pages/drawer_navigation/drawer_navigation_sc
 import 'package:flutter_ui_template/pages/tab_bar/tab_bar_screen.dart';
 import 'package:flutter_ui_template/pages/timeline/timeline_screen.dart';
 import 'package:flutter_ui_template/pages/my_schedule/my_schedule_screen.dart';
+import 'package:flutter_ui_template/pages/flight_search/flight_search_screen.dart';
 
 class MyNavigator {
   static const String _HOME_SCREEN = "/home";
@@ -15,11 +16,14 @@ class MyNavigator {
   static const String _DRAWER_NAVIGATION_SCREEN = "/drawer_navigation";
   static const String _TAP_BAR_SCREEN = "/tap_bar";
 
-  // UI Challenge
-  static const String _TIMELINE_SCREEN = "/timeline";
+  /// UI Challenge
 
+  // Timeline
+  static const String _TIMELINE_SCREEN = "/timeline";
   // MySchedule
   static const String _MY_SCHEDULE = "/my_schedule";
+  // Flight search
+  static const String _Flight_Search = "/flight_search";
 
   static void goToHome(BuildContext context) {
     Navigator.pushNamed(context, _HOME_SCREEN);
@@ -43,6 +47,10 @@ class MyNavigator {
 
   static void goToMySchedule(BuildContext context) {
     Navigator.pushNamed(context, _MY_SCHEDULE);
+  }
+
+  static void goToFlightSearch(BuildContext context) {
+    Navigator.pushNamed(context, _Flight_Search);
   }
 }
 
@@ -73,5 +81,9 @@ var routes = <String, WidgetBuilder>{
 
   MyNavigator._MY_SCHEDULE: (BuildContext context) {
     return MyScheduleScreen();
+  },
+
+  MyNavigator._Flight_Search: (BuildContext context) {
+    return FlightSearchScreen();
   }
 };
