@@ -5,7 +5,7 @@ Contains a variety of commonly used screen layouts for flutter developers to ref
 
 - [UI Template](#UI%20Template)
 - [Other](#Other)
-- [Author Information](#Author%20Information)
+- [Author Information](#AuthoInformation)
 
 ## UI Template
 
