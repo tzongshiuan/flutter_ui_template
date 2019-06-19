@@ -34,6 +34,7 @@ class S implements WidgetsLocalizations {
   String get tab_bar_title => "Tab Bar";
   String get timeline_title => "Timeline";
   String get title => "Flutter UI Title";
+  String get wallet_title => "Wallet";
 }
 
 class $zh_TW extends S {

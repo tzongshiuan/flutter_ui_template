@@ -53,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
       S.of(context).timeline_title,
       S.of(context).my_schedule_title,
       S.of(context).flight_search_title,
+      S.of(context).wallet_title,
     ];
 
     final icons = [Icons.directions_boat,
@@ -92,6 +93,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   break;
                 case 5:
                   MyNavigator.goToFlightSearch(context);
+                  break;
+                case 6:
+                  MyNavigator.goToWallet(context);
                   break;
                 default:
               }

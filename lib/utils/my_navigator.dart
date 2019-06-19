@@ -9,6 +9,7 @@ import 'package:flutter_ui_template/pages/tab_bar/tab_bar_screen.dart';
 import 'package:flutter_ui_template/pages/timeline/timeline_screen.dart';
 import 'package:flutter_ui_template/pages/my_schedule/my_schedule_screen.dart';
 import 'package:flutter_ui_template/pages/flight_search/flight_search_screen.dart';
+import 'package:flutter_ui_template/pages/wallet/wallet_screen.dart';
 
 class MyNavigator {
   static const String _HOME_SCREEN = "/home";
@@ -24,6 +25,8 @@ class MyNavigator {
   static const String _MY_SCHEDULE = "/my_schedule";
   // Flight search
   static const String _Flight_Search = "/flight_search";
+  // Wallet
+  static const String _Wallet = "/wallet";
 
   static void goToHome(BuildContext context) {
     Navigator.pushNamed(context, _HOME_SCREEN);
@@ -51,6 +54,10 @@ class MyNavigator {
 
   static void goToFlightSearch(BuildContext context) {
     Navigator.pushNamed(context, _Flight_Search);
+  }
+
+  static void goToWallet(BuildContext context) {
+    Navigator.pushNamed(context, _Wallet);
   }
 }
 
@@ -85,5 +92,9 @@ var routes = <String, WidgetBuilder>{
 
   MyNavigator._Flight_Search: (BuildContext context) {
     return FlightSearchScreen();
+  },
+
+  MyNavigator._Wallet: (BuildContext context) {
+    return WalletScreen();
   }
 };
